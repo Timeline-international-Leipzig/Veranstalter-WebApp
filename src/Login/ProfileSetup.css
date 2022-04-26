@@ -1,0 +1,79 @@
+.einrichtungSection {
+  text-align: center;
+}
+
+.sectionPI,
+.sectionBI {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.einrichtungPI {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.einrichtungBI {
+  width: 450px;
+  height: 200px;
+  cursor: pointer;
+}
+
+.einrichtung-hr {
+  width: 50%;
+  border: none;
+  border-bottom: 0.1em solid lightgray;
+  height: 0.1em;
+  margin: 0.1em auto;
+}
+
+.einrichtungPrivatsphäreCheck {
+  display: flex;
+  justify-content: center;
+}
+
+.customInput {
+  color: rgb(0, 61, 84);
+  font-size: 1.1em;
+  font-weight: 900;
+}
+
+.fileLabel {
+  cursor: pointer;
+}
+
+.input,
+.input2 {
+  width: 2em;
+  margin: 0.2em 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.einrichtungPrivatsphäre {
+  margin-bottom: 1.5em;
+}
+
+.weiterBtn {
+  color: white;
+  width: 2em;
+  background-color: rgba(0, 61, 84, 0.9);
+  transition: 0.2s;
+  text-decoration: none;
+  padding: 0.75em 4.5em;
+  border-radius: 0.8em;
+  font-size: 1.05em;
+  font-weight: 600;
+  margin: 2em auto 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.weiterBtn:hover {
+  color: #d7dbdd;
+  background-color: rgba(0, 61, 84, 1);
+}
