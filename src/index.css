@@ -1,0 +1,484 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+main {
+    margin-left: 12%;
+    margin-right: 12%;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.drawerFooter {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: .6em;
+}
+
+.imda {
+    padding: 0 1em;
+    text-decoration: none;
+    transition: .15s;
+    color: rgb(175, 175, 175);
+  }
+  
+.imda:hover {
+    color: skyblue;
+    opacity: 1;
+  }
+
+
+
+
+/* Navigation */
+
+.navbar {
+    width: 12%;
+    bottom: 10%;
+    top: 10%;
+    margin: auto;
+    position: fixed;
+    background-color: white;
+    border-right: .15em solid grey;
+    border-color: grey;
+    box-shadow: 10px 0 5px -6px rgba(70,70,70,0.15);
+    z-index: 10;
+}
+
+.navLogoText, .navLogoTextSmall {
+    margin: 0 .05em .03em;
+    font-size: 1.1em;
+    font-weight: bolder;
+    color: #024761;
+    transition: .2s;
+}
+
+.navLogoText:hover {
+    color: skyblue;
+}
+
+.navigationGroupic {
+    margin: 1.4em auto 1.5em;
+}
+
+.navigationGroupic:hover .navLogoText{
+    color: skyblue;
+}
+
+.navigationGroupic:hover svg.lGr{
+    stroke: skyblue;
+}
+
+li {
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+
+.nav {
+    height: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+.nav-link {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    margin: 0 auto;
+}
+
+.NavIcon {
+    width: 35px;
+    margin-bottom: .2em;
+}
+
+
+.link-text {
+    color: black;
+    opacity: 0;
+    border-top: .1em solid skyblue;
+    margin-top: 0em;
+    padding-top: 0em;
+    transition: .2s;
+    font-size: .86em;
+}
+
+.nav-link:hover .link-text {
+    display: inline-block;
+    opacity: 1;
+}
+
+.activeNav {
+    color: black;
+    border-top: .1em solid skyblue;
+    margin-top: 0em;
+    padding-top: 0em;
+    transition: .2s;
+    font-size: .86em;
+}
+
+
+/* Hexagon-Button */
+
+.hex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 36px;
+    margin: .2em auto 1em;
+}
+
+.hexagon {
+    position: relative;
+    width: 64px;
+    height: 36px;
+    background: lightskyblue;
+    transition: .1s;
+    box-shadow: -6px -6px 9px rgba(255,255,255,0.5),
+                6px 6px 9px rgba(70,70,70,0.15);
+}
+
+.hexagon .side {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    transition: .45s;
+    box-shadow: -6px -6px 9px rgba(255,255,255,0.5),
+                6px 6px 9px rgba(70,70,70,0.12);
+}
+
+.hexagon .side:nth-child(1) {
+    transform: rotate(60deg);
+}
+
+.hexagon .side:nth-child(2) {
+    transform: rotate(-60deg);
+}
+
+.hexagon::before {
+    box-sizing: border-box;
+    text-align: center;
+    content: "+";
+    color: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    z-index: 3;
+    font-size: 1.56em;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+.hexagon::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    z-index: 2;
+    transform: rotate(60deg);
+}
+
+.hexagon:hover::before {
+    color: lightskyblue;
+}
+
+.hexagon:hover {
+    background: #024761;
+}
+
+
+
+
+/* Notification */
+
+.notification {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notificationAlert {
+    position: absolute;
+    top: -5px;
+    right: 19px;
+    width: 22px;
+    height: 22px;
+    background-color: red;
+    color: white;
+    font-size: .7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+
+
+
+@media (max-width: 799px) {
+
+    main {
+        padding-bottom: 14%;
+    }
+
+    .navbar {
+        left: 0;
+        right: 0;
+        width: 100%;
+        top: 104%;
+        height: 3.8em;
+        border: .05em solid black;
+        box-shadow: 2px -1px 6px #888;
+        float: right;
+    }
+
+    .lGr {
+        display: none;
+    }
+
+
+    .navLogoText {
+        display: none;
+    }
+
+    li {
+        margin: 0 auto;
+    }
+
+    .nav {
+        flex-direction: row;
+    }
+
+    .nav-link {
+        justify-content: center;
+    }
+
+    .NavIcon {
+        width: 34px;
+    }
+
+    .link-text{
+        display: none;
+    }
+
+    .activeNav {
+        display: none;
+    }
+
+    .nav-link:hover .link-text {
+        display: none;
+    }
+
+
+    /* Hexagon */
+
+    .hex-container {
+        width: 49px;
+        height: 20px;
+    }
+
+    .hexagon {
+        width: 43.5px;
+        height: 24px;
+        margin-top: .45em;
+    }
+
+    .hexagon::before {
+        margin-top: -.05em;
+        font-size: 1.4em;
+        transition: 0.2s;
+    }
+
+    .hexagon:hover {
+        background-color: skyblue;
+    }
+
+    .hexagon:hover:before {
+        color: white;
+    }
+
+    main {
+        margin: 0;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .navbar {
+        height: 3.6em;
+        top: 104%;
+    }
+
+    .NavIcon {
+        width: 30px;
+    }
+
+    /* Hexagon */
+
+    .hex-container {
+        width: 40px;
+        height: 12px;
+    }
+
+    .hexagon {
+        margin-top: 20%;
+        width: 41px;
+        height: 23px;
+        box-shadow: -3px -3px 6px rgba(255,255,255,0.5),
+        3px 3px 6px rgba(70,70,70,0.15);
+    }
+
+    .hexagon .side {
+        box-shadow: -3px -3px 6px rgba(255,255,255,0.5),
+                    3px 3px 6px rgba(70,70,70,0.12);
+    }
+
+    .hexagon:before {
+        font-size: 1.3em;
+    }
+
+    .imda {
+        padding: 0 .8em;
+        font-size: .9em;
+      }
+}
+
+@media (max-width: 320px) {
+
+    .navbar {
+        height: 2.8em;
+        top: 105%;
+    }
+
+    .nav {
+        margin-top: .05em;
+    }
+
+    .hex-container {
+        width: 32px;
+        height: 18px;
+        
+    }
+
+    .hexagon {
+        margin-top: 28%;
+        width: 32px;
+        height: 17.5px;
+    }
+
+    .hexagon:before {
+        font-size: 1.05em;
+    }
+
+    #svg {
+        padding: 0;
+        min-width: 1.6em;
+    }
+
+}
+
+@media (max-width: 1400px) and (min-width: 800px) {
+    .navbar {
+        width: 12%;
+    }
+
+    #svg {
+        min-width: 2.4em;
+    }
+
+    .link-text {
+        font-size: .82em;
+    }
+
+    .NavIcon {
+        width: 42px;
+    }
+
+    .hex-container {
+        width: 60px;
+        height: 36px;
+    }
+
+    .hexagon {
+        width: 60px;
+        height: 34px;
+        font-size: .92em;
+    }
+
+    main {
+        margin-left: 12%;
+        margin-top: 0;
+    }
+
+    .navLogoText, .navLogoTextSmall {
+        font-size: 1.2em;
+        margin-bottom: .082em;
+    }
+}
+
+
+
+
+
+@media (max-height: 540px) {
+    .link-text {
+        display: none;
+        opacity: 0;
+        position: absolute;
+    }
+
+    .nav-link:hover .link-text {
+        display: none;
+        opacity: 0;
+    }
+}
+
+@media (max-height: 650px) and (min-width: 800px) {
+    .navbar {
+        top: 6%;
+        bottom: 6%;
+    }
+
+    .navLogoText, .navLogoTextSmall {
+        margin-top: .4em;
+        margin-bottom: .8em;
+    }
+
+    #svg {
+        min-width: 2.6em;
+    }
+
+    .link-text {
+        font-size: .8em;
+    }
+
+    #lit {
+        margin-bottom: 18%;
+    }
+}
