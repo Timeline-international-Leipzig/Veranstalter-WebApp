@@ -11,6 +11,6 @@ import LogoSmall from "../IconComponents/LogoSmall";
 //import { css } from "@emotion/react";
 
 function Register() {
-  return <div>test</div>;
+  return <div>test test</div>;
 }
 export default Register;
