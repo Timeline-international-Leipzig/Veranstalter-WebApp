@@ -1,0 +1,316 @@
+.settingsMain {
+    margin-left: 18%;
+    margin-right: 18%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.settingsNavbar {
+    width: 18%;
+    bottom: 25%;
+    top: 25%;
+    margin: auto;
+    position: fixed;
+    background-color: white;
+    border-right: .1em solid black;
+    border-color: grey;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+.sNav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.settingsNavGroupic {
+    width: 7em;
+}
+
+.settingsNavGroupic:hover svg.lGr {
+    stroke: skyblue;
+}
+
+.settingsNavGroupic:hover svg.Small {
+    stroke: skyblue;
+}
+
+.settingsNavGroupic:hover .navLogoText {
+    color: skyblue;
+}
+
+.settingsNavItem {
+    margin: auto 1.2em;
+}
+
+.settingsLink {
+    text-decoration: none;
+    margin: 0 auto;
+}
+
+.NavText {
+    color: black;
+    margin-top: 0em;
+    padding-top: 0em;
+    transition: .3s;
+    font-size: 1em;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+}
+
+.NavText:hover {
+    border-bottom: 1px solid skyblue;
+}
+
+.activeSettings {
+    border-bottom: 1px solid skyblue;
+}
+
+.settingsInput {
+    text-align: center;
+    border-radius: 0;
+}
+
+
+/* EditProfile */
+
+.settingsInputMTop{
+    margin: .8em 0 .6em;
+    color: #208CB4;
+    font-size: 1.05em;
+    font-weight: 900;
+    border-radius: 0;
+}
+
+.settingsDeleteSpan {
+    cursor: pointer;
+    color: red;
+    margin: auto;
+}
+
+
+.settingsBI {
+    width: 320px;
+    height: 160px;
+    cursor: pointer;
+    border-radius: .4em;
+    box-shadow: 2px 2px 7px rgba(70,70,70,0.45);
+}
+
+.settingsPI {
+    margin-top: -75px;
+    width: 120px;
+    background-color:rgb(0, 61, 84);
+    border-radius: 50%;
+    border: solid .12em rgb(0, 61, 84);
+    cursor: pointer;
+    z-index: 1;
+    box-shadow: 3px 3px 7px rgba(70,70,70,0.55);
+}
+
+.settingsInputMBot{
+    margin-top: 0;
+    margin-top: .6em;
+    margin-bottom: .8em;
+    color: #208CB4;
+    font-size: 1.05em;
+    font-weight: 900;
+    border-radius: 0;
+}
+
+.settingsInputSpan {
+    cursor: pointer;
+}
+
+.settingsSpan {
+    color: #208CB4;
+    cursor: pointer;
+}
+
+.realnameInfo {
+    font-size: .75em;
+    width: 50%;
+    margin: .2em auto 0;
+}
+
+.editProfileInput {
+    width: 15em;
+}
+
+
+
+/* Privacy */
+
+.customInput {
+    cursor: default;
+    border-radius: 0;
+}
+
+.savePrivacyBtn, .updatePW, .updateProfile, .updateEmail {
+    color: white;
+    width: 8em;
+    background-color: rgba(0, 61, 84, .95);
+    box-shadow: 2px 2px 7px rgba(70,70,70,0.15);
+    transition: .2s;
+    text-decoration: none;
+    border-radius: .6em;
+    border: none;
+    font-size: 1.05em;
+    font-weight: 300;
+    margin: 1.5em auto 0;
+    padding: .4em;
+    cursor: pointer;
+}
+
+.savePrivacyBtn:hover, .updatePW:hover, .updateProfile:hover {
+    background-color: rgba(0, 61, 84, .85);
+    box-shadow: 4px 4px 7px rgba(70,70,70,0.15);
+}
+
+
+/* ChangePassword */
+
+label {
+    color: #024761;
+    font-weight: bold;
+    display: block;
+    margin: 1.3em auto .9em;
+    font-size: 1em;
+    padding: auto;
+  }
+  
+input {
+    border: none;
+    border-bottom: 1.5px solid #024761;
+    width: 100%;
+    outline: none;
+    padding: 0.4em;
+    box-sizing: border-box;
+    margin: 0 0 0.5em 0;
+    border-radius: 0;
+  }
+  
+.pwLine {
+    display: flex;
+    position: relative;
+  }
+
+.seePW, .seePW2 {
+    width: 10em;
+    font-size: .85em;
+    font-weight: 600;
+    text-align: right;
+    border: none;
+    border-bottom: 1.5px solid #024761;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+.seePW {
+    margin-bottom: 6.6px;
+}
+
+.seePW2 {
+      margin-bottom: 6.6px;
+  }
+
+@media (max-width: 800px) {
+    .settingsMain {
+        margin-left: 25%;
+        margin-right: 18%;
+        margin-top: 3%;
+    }
+    
+    .settingsNavbar {
+        width: 25%;
+        bottom: 25%;
+        top: 25%;
+    }
+
+    .settingsNavItem {
+        margin: auto .8em;
+    }
+
+    .settingsBI {
+        width: 280px;
+        height: 140px;
+    }
+    
+    .settingsPI {
+        margin-top: -60px;
+        width: 100px;
+    }
+
+    .realnameInfo {
+        font-size: .75em;
+        width: 70%;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .settingsMain {
+        margin-left: 23%;
+        margin-right: 14%;
+        margin-top: 3%;
+    }
+    
+    .settingsNavbar {
+        width: 23%;
+        bottom: 25%;
+        top: 25%;
+    }
+
+    .settingsNavItem {
+        margin: auto .2em;
+
+    }
+
+    .settingsNavGroupic {
+        width: 2em;
+    }
+
+    .NavText {
+        margin-top: 0em;
+        padding-top: 0em;
+        font-size: .75em;
+
+    }
+
+    .navLogoTextSmall {
+        display: none;
+    }
+
+    .settingsSpan {
+        font-size: .85em;
+    }
+        
+
+    .settingsBI {
+        width: 200px;
+        height: 100px;
+    }
+    
+    .settingsPI {
+        margin-top: -47px;
+        width: 75px;
+    }
+
+    .realnameInfo {
+        font-size: .7em;
+        width: 80%;
+    }
+
+    .settingsDeleteSpan, .settingsInputSpan {
+        font-size: .9em;
+    }
+
+    .settingsInput {
+        width: 80%;
+    }
+}

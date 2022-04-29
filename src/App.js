@@ -1,5 +1,6 @@
 import "./index.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import PrivateRoute from "./Auth/PrivateRoute";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import _ from "lodash";
@@ -8,7 +9,6 @@ import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import pathnames from "./Util/pathnames";
 import { isLogged } from "./Redux/actions";
-//import firebase from "firebase";
 import Register from "./Login/Register";
 import Login from "./Login/Login";
 import EmailCheck from "./Login/EmailCheck";
@@ -16,6 +16,10 @@ import ProfileSetup from "./Login/ProfileSetup";
 import AGB from "./Util/Repitition/Footer/AGB";
 import Impressum from "./Util/Repitition/Footer/Impressum";
 import Datenschutz from "./Util/Repitition/Footer/Datenschutz";
+import ForgotPassword from "./Login/ForgotPassword";
+import Profile from "./Profile/Profile";
+import EditProfile from "./Settings/EditProfile";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDBff13eSabadw6JOmPPWKsfxu7okqx0I4",
@@ -31,10 +35,41 @@ firebase.initializeApp(firebaseConfig);
 //firebase.analytics();
 
 function App() {
+  const dispatch = useDispatch()
+
+  const [isAuthenticated, setIsAuthenticated] = useState(null);
+  const [isVerified, setIsVerified] = useState(null);
+  const [uid, setUid] = useState(null)
+
+  useEffect(() => {
+    function authListener() {
+      firebase.auth().onAuthStateChanged(function onAuthStateChanged(user) {
+        if (user) {
+          setUid(user.uid)
+          dispatch(isLogged())
+          setIsAuthenticated(true)
+          setIsVerified(user.emailVerified)
+          // console.log()
+        }
+        else {
+          setIsAuthenticated(false)
+          setIsVerified(false)
+        }
+      })
+    }
+    authListener()
+  }, [isAuthenticated])
+
+  function emailIsVerified() {
+    setIsVerified(true);
+    window.location.href = pathnames.PROFIL_SETUP;
+  }
+
   return (
     <Router>
       {/*<div className="content">*/}
       <Routes>
+        {/*Anmeldung */}
         <Route path="/" component={Register}></Route>
 
         <Route exact path={pathnames.AGB} element={<AGB />}></Route>
@@ -42,13 +77,15 @@ function App() {
         <Route exact path={pathnames.IMPRESSUM} element={<Impressum />}></Route>
 
         <Route exact path={pathnames.REGISTER} element={<Register />}></Route>
-
         <Route exact path={pathnames.LOGIN} element={<Login />}></Route>
+        <Route exact path={pathnames.FORGOT_PASSWORD} element={<ForgotPassword />}></Route>
 
         <Route exact path={pathnames.EMAIL_CHECK} element={<EmailCheck />}></Route>
-
         <Route exact path={pathnames.PROFIL_SETUP} element={<ProfileSetup />}></Route>
 
+        {/*In Anwendung */}
+        <Route exact path={pathnames.PROFILE} element={<Profile uid={uid} />}></Route>
+        <Route exact path={pathnames.EDIT_PROFILE} element={<EditProfile />}></Route>
 
       </Routes>
       {/*</div>*/}

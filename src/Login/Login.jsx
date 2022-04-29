@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
+import "./Login.css";
 import { Link } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import _ from "lodash";
@@ -41,8 +42,9 @@ function Login() {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
+        console.log(firebase.auth().currentUser.uid);
         setLoading(false);
-        window.location.href = pathnames.PROFIL_SETUP;
+        window.location.href = pathnames.PROFILE;
       })
       .catch((error) => {
         setLoading(false);

@@ -1,0 +1,150 @@
+#createLabel {
+    font-size: 1.1em;
+    font-weight: bolder;
+    color: #024761;
+}
+
+.createAlbum {
+    margin: 2em 0 .2em;
+    font-size: 1.2em;
+    font-weight: bolder;
+    color: #024761;
+}
+
+.createAlbum span {
+    text-transform: uppercase;
+    display: block;
+    font-size: 1.3rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+.createAlbum span::before {
+    content: "";
+    position: absolute;
+    width: 4em;
+    background: rgb(0, 54, 73, .9);
+    height: 0.2em;
+    bottom: 0;
+    z-index: -1;
+    margin-left: -0.3em;
+}
+
+.nameLabel {
+    margin: 1.5em auto .3em;
+    cursor: pointer;
+}
+
+.createTitleContainer {
+    width: 30%;
+    text-align: center;
+}
+
+.titleInput {
+    text-align: center;
+}
+
+.startDatum, .startDatum2 {
+    display: flex;
+    flex-direction: row;
+}
+
+.startDatum {
+    margin-top: .6em;
+}
+
+.startDatum2 {
+    margin-top: -.6em;
+}
+
+.customInput {
+    margin-left: .6em;
+    margin-top: 22.5px;
+    border: none;
+    background-color: white;
+    text-align: top;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: end;
+    font-weight: lighter;
+    color: #024761;
+    font-size: 1.1em;
+}
+
+.calendarIcon {
+    cursor: pointer;
+    width: 1.5em;
+    height: 1.5em;
+    margin-top: -5.2px;
+    margin-left: 7px;
+}
+
+.coverLabel {
+    margin-bottom: .5em;
+    cursor: pointer;
+}
+
+.privacyLabel {
+    margin: 1.8em 0 .7em;
+    cursor: default;
+}
+
+.eventPrivacy {
+    display: inline;
+}
+
+.eventPrivacyLabel {
+    margin: -.3em 0 .6em 0;
+}
+
+.continueEvent {
+    color: white;
+    width: 8em;
+    background-color: rgba(0, 61, 84, .95);
+    box-shadow: 2px 2px 7px rgba(70,70,70,0.15);
+    transition: .2s;
+    text-decoration: none;
+    border-radius: .6em;
+    border: none;
+    font-size: 1.05em;
+    font-weight: 300;
+    margin: .8em auto 0;
+    padding: .4em;
+    cursor: pointer;
+    position: relative;
+}
+
+.continueEvent:hover {
+    background-color: rgba(0, 61, 84, .85);
+    box-shadow: 4px 4px 7px rgba(70,70,70,0.15);
+}
+
+@media (max-width: 520px) {
+
+    .createAlbum {
+        margin-top: 1em;
+    }
+
+    .nameLabel {
+        margin-top: 1.2em;
+    }
+
+    .startDatum {
+        margin-top: .2em;
+    }
+
+    .coverLabel {
+        margin-top: 1em;
+    }
+
+    .createTitleContainer {
+        width: 70%;
+    }
+
+    .einrichtungBI {
+        width: 280px;
+        height: 140px;
+        box-shadow: 2px 2px 7px rgba(70,70,70,0.45);
+    }
+}

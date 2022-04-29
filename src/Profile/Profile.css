@@ -1,0 +1,574 @@
+.sectionPI, .sectionBI {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.customFileInputBI, .customFileInputPI {
+    margin: 0;
+}
+
+.BI, .otherBI {
+    margin-top: 1.2em;
+    width: 500px;
+    height: 250px;
+    border-radius: .4em;
+    box-shadow: 2px 2px 7px rgba(70,70,70,0.45);
+}
+
+.BI {
+    cursor: pointer;
+}
+
+.otherBI {
+    cursor: default;
+}
+
+.PI, .otherPI {
+    margin-top: -95px;
+    margin-bottom: 0px;
+    width: 160px;
+    background-color:rgb(0, 61, 84);
+    border-radius: 50%;
+    border: solid .12em rgb(0, 61, 84);
+    z-index: 1;
+    box-shadow: 3px 3px 7px rgba(70,70,70,0.55);
+}
+
+.PI {
+    cursor: pointer;
+}
+
+.otherPI {
+    cursor: default;
+}
+
+.profileInfo {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.userName, .userRealName {
+    margin: 0;
+    cursor: default;
+    text-decoration: none;
+}
+
+.userName {
+    margin-top: .25em;
+    color: black;
+}
+
+.userRealName {
+    margin-top: .2em;
+    color: gray;
+}
+
+#followBtn{
+    width: 9em;
+    transition: .2s;
+    text-decoration: none;
+    border-radius: .6em;
+    border: none;
+    font-size: 1.05em;
+    font-weight: 300;
+    margin: .4em auto .2em;
+    padding: .4em;
+    cursor: pointer;
+    box-shadow: 2px 2px 7px rgba(70,70,70,0.15);
+}
+
+.profileEdit {
+    color: black;
+    background-color: white;
+}
+
+.profileEditLink {
+    text-decoration: none;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* TabBar */
+
+.sectionTab {
+    width: 100%;
+    margin-bottom: 1.5em;
+}
+
+.contents {
+    display: none;
+}
+
+.hr1 {
+    width: 76%;
+    border: 0;
+    border-bottom: .1em solid gray;
+    margin: 0 auto;
+    margin-top: 1.5em;
+}
+
+.tabBar {
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.hr2 {
+    border: 0;
+    border-bottom: .3em solid rgb(233, 233, 233);
+    border-radius: 1em;
+    width: 70%;
+    margin: -.3em auto;
+}
+
+.tabBar .tab-head {
+    display: flex;
+    align-items: center;
+    height: 4em;
+}
+
+.tabBar .tab-head > div {
+    display: flex;
+    width: 25%;
+    margin-top: .1em;
+    height: 3.3em;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.tabBar .tab-head > div:hover {
+    background: rgb(249, 249, 249);
+}
+
+.tabBar .tab-indicator {
+    position: relative;
+    width: 25%;
+    height: .25em;
+    background: skyblue;
+    border-radius: 1em;
+    transition: .3s ease-in-out;
+}
+
+.tab-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.searchInputProfile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: .8em;
+    border: none;
+    border-radius: 0;
+}
+.searchInputProfile2 {
+    width: 450px;
+    padding: .1em 1.6em;
+    font-size: 1.1em;
+}
+
+.searchIcon {
+    position: absolute;
+    top: 0;
+}
+
+
+/* Tab Content - Events */
+
+
+.vertical {
+    height: 386px;
+    width: 1px;
+    background-color: black;
+    position: absolute;
+    left: 8.2%;
+    z-index: -1;
+    margin-top: 3px;
+}
+
+.dateLine {
+    margin-left: 43px;
+}
+
+.previewLink {
+    text-decoration: none;
+    color: black;
+}
+
+.circleWrapper {
+    text-align: left;
+    margin: 31px 0 1px;
+    position: relative;
+}
+
+.circle {
+    border: solid 1px black;
+    width: 1em;
+    height: 1em;
+    top: 1.15%;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0;
+    z-index: 1;
+    background-color: white;
+    vertical-align: middle;
+    position: absolute;
+}
+
+.previewDate, .previewDate2 {
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: bolder;
+    vertical-align: middle;
+}
+
+.previewDate {
+    margin: 0 4.5px 0 24px;
+}
+
+.previewImg {
+    width: 636px;
+    height: 318px;
+    border-radius: .3em;
+    box-shadow: 4px 4px 7px rgba(70,70,70,0.15);
+    margin-top: 10px;
+    position: relative;
+}
+
+.highlightStar {
+    position: absolute;
+    right: 4%;
+    top: -.5%;
+    cursor: pointer;
+}
+
+.starIcon {
+    width: 1.6em;
+    height: 1.6em;
+}
+
+.previewTitle {
+    margin: -1px 0 0 42px;
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+
+
+
+
+
+/* Tab Content - Follower */
+
+.contactList {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactPic {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    margin: 2em 1em 0;
+    border: .1em solid rgb(0, 61, 84);
+    background-color:rgb(0, 61, 84);
+    cursor: pointer;
+    z-index: 1;
+}
+
+.contactPicMore {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    margin: 1.8em 1em 0em;
+    border: .1em solid rgb(0, 61, 84);
+    cursor: pointer;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.moreContacts {
+    color: rgb(0, 61, 84);
+}
+
+.plusSpanSizer {
+    font-size: 2em;
+    color: black;
+}
+
+.contactNameSpan2 {
+    margin-top: .3em;
+}
+
+.contactName {
+    margin: 0;
+    text-decoration: none;
+    color: rgb(0, 61, 84);
+}
+
+.userContact {
+    color: rgb(0, 61, 84);
+    font-size: 1.1em;
+    width: 100%;
+    font-weight: bolder;
+    margin-top: .8em;
+    text-decoration: none;
+    border: none;
+    border-bottom: solid 1px black;
+    box-shadow: 0 8px 4px -6px rgba(70,70,70,0.15);
+}
+
+
+
+
+
+
+@media (max-width: 800px) {
+    .BI, .otherBI {
+        margin-top: 1em;
+        width: 380px;
+        height: 190px;
+    }
+
+    .PI, .otherPI {
+        margin-top: -80px;
+        margin-bottom: 0px;
+        width: 130px;
+    }
+
+    #followBtn{
+        width: 9em;
+        font-size: .9em;
+    }
+
+    .hr1 {
+        width: 84%;
+        margin: 0 auto;
+        margin-top: 1.2em;
+    }
+    
+    .tabBar {
+        position: relative;
+        width: 80%;
+    }
+    
+    .hr2 {
+        width: 80%;
+        margin: -.3em auto;
+    }
+    @media (max-width: 800px) {
+  .searchInputProfile2 {
+    width: 380px;
+    padding: .1em 1.6em;
+    font-size: 1.05em;
+}
+}
+    .tabBar .tab-head {
+        display: flex;
+        align-items: center;
+        height: 3em;
+    }
+    
+    .tabBar .tab-head > div {
+        height: 2.4em;
+        font-size: 1.1em;
+    }
+
+    .searchInputProfile2 {
+        width: 380px;
+        padding: .1em 1.6em;
+        font-size: 1.05em;
+    }
+
+
+
+
+.vertical {
+    height: 314px;
+    left: 8.6%;
+    margin-top: 3px;
+}
+
+.dateLine {
+    margin-left: 35px;
+}
+
+
+.circleWrapper {
+    margin: 31px 0 1px;
+}
+
+.circle {
+    top: 1.15%;
+}
+    
+    .previewDate {
+        margin: 0 4.5px 0 24px;
+    }
+    
+    .previewImg {
+        width: 500px;
+        height: 250px;
+        margin-top: 10px;
+    }
+    
+    .previewTitle {
+        margin: -1px 0 0 42px;
+        font-size: 1.1em;
+    }
+
+
+
+    .contactPic {
+        width: 4em;
+    height: 4em;
+    margin: 1.2em 1em 0em;
+    }
+    
+    .contactName {
+        margin: 0;
+    }
+    
+    .userContact {
+        font-size: 1.05em;
+        margin-top: .8em;
+    }
+
+}
+
+
+@media (max-width: 520px) {
+    .BI, .otherBI {
+        margin-top: 1em;
+        width: 300px;
+        height: 150px;
+    }
+
+    .PI, .otherPI {
+        margin-top: -66px;
+        margin-bottom: 0px;
+        width: 105px;
+    }
+
+    #followBtn{
+        width: 9em;
+        font-size: .8em;
+    }
+
+    .hr1 {
+        width: 97%;
+        margin: 0 auto;
+        margin-top: .8em;
+    }
+    
+    .tabBar {
+        position: relative;
+        width: 94%;
+    }
+    
+    .hr2 {
+        width: 94%;
+        margin: -.3em auto;
+    }
+    
+    .tabBar .tab-head {
+        display: flex;
+        align-items: center;
+        height: 2.2em;
+    }
+    
+    .tabBar .tab-head > div {
+        height: 2.2em;
+        font-size: .83em;
+    }
+
+    .searchInputProfile2 {
+        width: 300px;
+        padding: .1em 1.6em;
+        font-size: 1em;
+    }
+
+
+
+    .contactName {
+        margin: auto .3em;
+    }
+
+    .contactNameSpan {
+        font-size: .8em
+    }
+
+
+
+.vertical {
+    height: 212px;
+    left: 8%;
+    margin-top: 3px;
+}
+
+.dateLine {
+    margin-left: 17.4px;
+}
+
+.previewDate, .previewDate2 {
+    font-size: 1.05em;
+}
+
+.circleWrapper {
+    margin: 19px 0 1px;
+}
+
+.circle {
+    top: 1.15%;
+}
+    
+    .previewDate {
+        margin: 0 4.5px 0 24px;
+    }
+    
+    .previewImg {
+        width: 320px;
+        height: 160px;
+        margin-top: 10px;
+    }
+    
+    .previewTitle {
+        margin: 0px 0 0 42px;
+        font-size: 1.05em;
+    }
+
+
+
+
+    .contactPic {
+        width: 3.5em;
+        height: 3.5em;
+        margin: 1em .4em 0; 
+    }
+    
+    .contactName {
+        font-size: .95em;
+    }
+    
+    .userContact {
+        font-size: 1em;
+        margin-top: .8em;
+    }
+}
