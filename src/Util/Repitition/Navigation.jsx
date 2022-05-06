@@ -8,7 +8,7 @@ import Group from "../../IconComponents/Group";
 import Album from "../../IconComponents/Album";
 import Notification from "../../IconComponents/Notification";
 import SettingsIcon from "../../IconComponents/SettingsIcon";
-//import Drawer from ''
+import Drawer from "../Repitition/Drawer";
 import { useSelector } from "react-redux";
 import LogoGroupic from "./LogoGroupic";
 
@@ -17,7 +17,17 @@ function Navigation(props) {
   const currentSocial = props.currentSocial;
   const currentNotification = props.currentNotification;
 
-  const uid = useSelector((state) => state.uidReducer);
+  //const uid = useSelector((state) => state.uidReducer);
+
+  const [isOpen, setIsOpen] = useState({ drawerPop: false });
+
+  const toggleOpen = () => {
+    setIsOpen({ drawerPop: true });
+  };
+
+  const toggleClose = () => {
+    setIsOpen({ drawerPop: false });
+  };
 
   return (
     <div>
@@ -70,7 +80,7 @@ function Navigation(props) {
             </Link>
           </li>
 
-          <li id="li2" /*onClick={() => toggleOpen()}*/>
+          <li id="li2" onClick={() => toggleOpen()}>
             <div className="nav-link">
               <SettingsIcon />
               <span className="link-text">einstellungen</span>
@@ -78,7 +88,7 @@ function Navigation(props) {
           </li>
         </ul>
       </nav>
-      {/*<Drawer open={isOpen} onClose={() => toggleClose()} />*/}
+      <Drawer open={isOpen} onClose={() => toggleClose()} />
     </div>
   );
 }

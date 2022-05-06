@@ -10,8 +10,8 @@ import pathnames from "../Util/pathnames";
 import "./Profile.css";
 import Navigation from "../Util/Repitition/Navigation";
 
-function Profile(props) {
-  const uid = props.uid;
+function Profile() {
+  const uid = useSelector((state) => state.uidReducer);
 
   const [userText, setUserText] = useState({});
 
@@ -30,7 +30,7 @@ function Profile(props) {
         });
     }
     userInfos();
-  }, []);
+  }, [uid]);
   //console.log(uid);
 
   if (!uid) return <div> etwas ist schief gelaufen :(</div>;

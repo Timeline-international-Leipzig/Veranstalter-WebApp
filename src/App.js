@@ -19,6 +19,7 @@ import Datenschutz from "./Util/Repitition/Footer/Datenschutz";
 import ForgotPassword from "./Login/ForgotPassword";
 import Profile from "./Profile/Profile";
 import EditProfile from "./Settings/EditProfile";
+import CreateEvent from "./Event/CreateEvent";
 
 
 const firebaseConfig = {
@@ -39,17 +40,14 @@ function App() {
 
   const [isAuthenticated, setIsAuthenticated] = useState(null);
   const [isVerified, setIsVerified] = useState(null);
-  const [uid, setUid] = useState(null)
 
   useEffect(() => {
     function authListener() {
       firebase.auth().onAuthStateChanged(function onAuthStateChanged(user) {
         if (user) {
-          setUid(user.uid)
           dispatch(isLogged())
           setIsAuthenticated(true)
           setIsVerified(user.emailVerified)
-          // console.log()
         }
         else {
           setIsAuthenticated(false)
@@ -58,7 +56,7 @@ function App() {
       })
     }
     authListener()
-  }, [isAuthenticated])
+  }, [])
 
   function emailIsVerified() {
     setIsVerified(true);
@@ -70,7 +68,7 @@ function App() {
       {/*<div className="content">*/}
       <Routes>
         {/*Anmeldung */}
-        <Route path="/" component={Register}></Route>
+        <Route exact path="/" component={Register}></Route>
 
         <Route exact path={pathnames.AGB} element={<AGB />}></Route>
         <Route exact path={pathnames.DATENSCHUTZ} element={<Datenschutz />}></Route>
@@ -80,13 +78,24 @@ function App() {
         <Route exact path={pathnames.LOGIN} element={<Login />}></Route>
         <Route exact path={pathnames.FORGOT_PASSWORD} element={<ForgotPassword />}></Route>
 
-        <Route exact path={pathnames.EMAIL_CHECK} element={<EmailCheck />}></Route>
+        <Route exact path={pathnames.EMAIL_CHECK} element={<EmailCheck emailIsVerified={emailIsVerified} />}></Route>
         <Route exact path={pathnames.PROFIL_SETUP} element={<ProfileSetup />}></Route>
 
         {/*In Anwendung */}
-        <Route exact path={pathnames.PROFILE} element={<Profile uid={uid} />}></Route>
-        <Route exact path={pathnames.EDIT_PROFILE} element={<EditProfile />}></Route>
+        <Route exact path={pathnames.PROFILE} element={
+          <PrivateRoute isAuthenticated={isAuthenticated} isVerified={isVerified} >
+            <Profile />
+          </PrivateRoute>}></Route>
 
+        <Route exact path={pathnames.EDIT_PROFILE}
+          element={
+            <PrivateRoute isAuthenticated={isAuthenticated} isVerified={isVerified}><EditProfile /></PrivateRoute>
+          }></Route>
+
+        <Route exact path={pathnames.EVENT_CREATION}
+          element={
+            <PrivateRoute isAuthenticated={isAuthenticated} isVerified={isVerified}><CreateEvent /></PrivateRoute>
+          }></Route>
       </Routes>
       {/*</div>*/}
     </Router>

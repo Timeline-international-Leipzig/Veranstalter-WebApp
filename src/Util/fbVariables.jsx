@@ -2,6 +2,7 @@ const Fb = {
   USERS: "users",
   ORGANIZERS: "organizers",
   EVENTS: "events",
+  COM_EVENTS: "com_events",
   CONTACTS: "contacts",
   ELEMENTS: "elements",
   E_REQUESTS: "eventRequests",
