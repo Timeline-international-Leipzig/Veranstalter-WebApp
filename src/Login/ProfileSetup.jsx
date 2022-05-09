@@ -15,9 +15,12 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/react";
 import pathnames from "../Util/pathnames";
 import Fb from "../Util/fbVariables";
+import { useSelector } from "react-redux";
 
 function ProfileSetup() {
-  const uid = firebase.auth().currentUser.uid;
+  const uid = useSelector((state) => state.uidReducer);
+
+  //const uid = firebase.auth().currentUser.uid;
 
   // Profile Image
   const [result, setResult] = useState();

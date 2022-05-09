@@ -120,7 +120,7 @@ function Login() {
           </div>
           <div className="contSwitch">
             <Link to="/registrierung" id="gray">
-              "kein account vorhanden? hier registrieren.",
+              kein account vorhanden? hier registrieren.
             </Link>
           </div>
 
