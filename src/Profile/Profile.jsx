@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import pathnames from "../Util/pathnames";
 import "./Profile.css";
 import Navigation from "../Util/Repitition/Navigation";
+import TabBar from "./Components/TebBar";
+import PayPalTest from "./Components/PayPalTest";
 
 function Profile() {
   const uid = useSelector((state) => state.uidReducer);
@@ -53,6 +55,8 @@ function Profile() {
             </button>
           </Link>
         </div>
+        <PayPalTest />
+        <TabBar />
       </main>
     </div>
   );

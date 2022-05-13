@@ -122,11 +122,10 @@ function Register() {
         email: email,
         profileImageId: "",
         titleImageId: "",
-        adress: adress,
-        city: city,
+        adress: adress + city,
         token: "",
         keyWords: "",
-        // highLights: [],
+        highLights: [],
         events: [],
         usedStorage: 0,
         availableStoarge: 2000000,
@@ -327,7 +326,7 @@ function Register() {
                 <span>
                   ich habe die{" "}
                   <Link to={pathnames.AGB} target="_blank">
-                    AGB{" "}
+                    AGB
                   </Link>{" "}
                   gelesen und bin einverstanden
                 </span>

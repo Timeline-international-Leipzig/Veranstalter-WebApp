@@ -42,7 +42,6 @@ function Login() {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        console.log(firebase.auth().currentUser.uid);
         setLoading(false);
         window.location.href = pathnames.PROFILE;
       })
