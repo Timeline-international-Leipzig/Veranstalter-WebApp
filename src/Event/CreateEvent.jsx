@@ -17,6 +17,7 @@ import Calendar from "../IconComponents/Calendar";
 import Fb from "../Util/fbVariables";
 import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/react";
+import CurrencyInput from "react-currency-input-field";
 
 function CreateEvent() {
   const uid = useSelector((state) => state.uidReducer);
@@ -29,6 +30,7 @@ function CreateEvent() {
   const [endDate, setEndDate] = useState();
   const [endDateFormatted, setEndDateFormatted] = useState(null);
   const [eventPrivacy, setEventPrivacy] = useState();
+  const [price, setPrice] = useState(1);
 
   //aktiviert den Chiploader am Anfang der Funktion und deaktiviert ihn am ende
   const [loading, setLoading] = useState(false);
@@ -98,6 +100,7 @@ function CreateEvent() {
         endStamp: endStampMillisec,
         sizeKb: 0,
         URL: URL,
+        price: price,
       })
       .then(async () => {
         await firebase
@@ -390,15 +393,28 @@ function CreateEvent() {
             <input
               id="teilnehmerUndKontakte"
               type="radio"
-              value="beschränkt"
-              checked={eventPrivacy === "beschränkt"}
+              value="auf Einladung"
+              checked={eventPrivacy === "auf Einladung"}
               onChange={(e) => setEventPrivacy(e.target.value)}
             />
             <label
               className="eventPrivacyLabel"
               htmlFor="teilnehmerUndKontakte"
             >
-              beschränkt
+              auf Einladung
+            </label>
+          </div>
+
+          <div className="line1">
+            <input
+              id="teilnehmer"
+              type="radio"
+              value="kostenpflichtig"
+              checked={eventPrivacy === "kostenpflichtig"}
+              onChange={(e) => setEventPrivacy(e.target.value)}
+            />
+            <label className="eventPrivacyLabel" htmlFor="teilnehmer">
+              bezahltes Ticket
             </label>
           </div>
         </form>
@@ -415,6 +431,18 @@ function CreateEvent() {
             size={15}
           />
         </button>
+
+        {eventPrivacy === "kostenpflichtig" && (
+          <CurrencyInput
+            placeholder="bitte gib den Preis deines Tickets ein"
+            onValueChange={(value) => setPrice(value)}
+            value={price}
+            decimalsLimit={2}
+            suffix="€"
+            allowNegativeValue={false}
+            defaultValue={1}
+          />
+        )}
       </main>
     </div>
   );

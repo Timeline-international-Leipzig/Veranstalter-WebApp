@@ -20,6 +20,7 @@ import ForgotPassword from "./Login/ForgotPassword";
 import Profile from "./Profile/Profile";
 import EditProfile from "./Settings/EditProfile";
 import CreateEvent from "./Event/CreateEvent";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 
 const firebaseConfig = {
@@ -63,7 +64,9 @@ function App() {
     window.location.href = pathnames.PROFIL_SETUP;
   }
 
+
   return (
+
     <Router>
       {/*<div className="content">*/}
       <Routes>

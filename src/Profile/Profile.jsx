@@ -35,6 +35,10 @@ function Profile() {
   }, [uid]);
   //console.log(uid);
 
+  const product = {
+    price: 30,
+  };
+
   if (!uid) return <div> etwas ist schief gelaufen :(</div>;
 
   return (
@@ -56,6 +60,7 @@ function Profile() {
           </Link>
         </div>
         <PayPalTest />
+        {/*product={product}*/}
         <TabBar />
       </main>
     </div>
