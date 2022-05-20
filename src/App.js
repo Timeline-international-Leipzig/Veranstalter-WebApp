@@ -20,8 +20,6 @@ import ForgotPassword from "./Login/ForgotPassword";
 import Profile from "./Profile/Profile";
 import EditProfile from "./Settings/EditProfile";
 import CreateEvent from "./Event/CreateEvent";
-import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-
 
 const firebaseConfig = {
   apiKey: "AIzaSyDBff13eSabadw6JOmPPWKsfxu7okqx0I4",
@@ -37,7 +35,7 @@ firebase.initializeApp(firebaseConfig);
 //firebase.analytics();
 
 function App() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [isAuthenticated, setIsAuthenticated] = useState(null);
   const [isVerified, setIsVerified] = useState(null);
@@ -46,27 +44,24 @@ function App() {
     function authListener() {
       firebase.auth().onAuthStateChanged(function onAuthStateChanged(user) {
         if (user) {
-          dispatch(isLogged())
-          setIsAuthenticated(true)
-          setIsVerified(user.emailVerified)
+          dispatch(isLogged());
+          setIsAuthenticated(true);
+          setIsVerified(user.emailVerified);
+        } else {
+          setIsAuthenticated(false);
+          setIsVerified(false);
         }
-        else {
-          setIsAuthenticated(false)
-          setIsVerified(false)
-        }
-      })
+      });
     }
-    authListener()
-  }, [])
+    authListener();
+  }, []);
 
   function emailIsVerified() {
     setIsVerified(true);
     window.location.href = pathnames.PROFIL_SETUP;
   }
 
-
   return (
-
     <Router>
       {/*<div className="content">*/}
       <Routes>
@@ -74,31 +69,71 @@ function App() {
         <Route exact path="/" component={Register}></Route>
 
         <Route exact path={pathnames.AGB} element={<AGB />}></Route>
-        <Route exact path={pathnames.DATENSCHUTZ} element={<Datenschutz />}></Route>
+        <Route
+          exact
+          path={pathnames.DATENSCHUTZ}
+          element={<Datenschutz />}
+        ></Route>
         <Route exact path={pathnames.IMPRESSUM} element={<Impressum />}></Route>
 
         <Route exact path={pathnames.REGISTER} element={<Register />}></Route>
         <Route exact path={pathnames.LOGIN} element={<Login />}></Route>
-        <Route exact path={pathnames.FORGOT_PASSWORD} element={<ForgotPassword />}></Route>
+        <Route
+          exact
+          path={pathnames.FORGOT_PASSWORD}
+          element={<ForgotPassword />}
+        ></Route>
 
-        <Route exact path={pathnames.EMAIL_CHECK} element={<EmailCheck emailIsVerified={emailIsVerified} />}></Route>
-        <Route exact path={pathnames.PROFIL_SETUP} element={<ProfileSetup />}></Route>
+        <Route
+          exact
+          path={pathnames.EMAIL_CHECK}
+          element={<EmailCheck emailIsVerified={emailIsVerified} />}
+        ></Route>
+        <Route
+          exact
+          path={pathnames.PROFIL_SETUP}
+          element={<ProfileSetup />}
+        ></Route>
 
         {/*In Anwendung */}
-        <Route exact path={pathnames.PROFILE} element={
-          <PrivateRoute isAuthenticated={isAuthenticated} isVerified={isVerified} >
-            <Profile />
-          </PrivateRoute>}></Route>
-
-        <Route exact path={pathnames.EDIT_PROFILE}
+        <Route
+          exact
+          path={pathnames.PROFILE}
           element={
-            <PrivateRoute isAuthenticated={isAuthenticated} isVerified={isVerified}><EditProfile /></PrivateRoute>
-          }></Route>
+            <PrivateRoute
+              isAuthenticated={isAuthenticated}
+              isVerified={isVerified}
+            >
+              <Profile />
+            </PrivateRoute>
+          }
+        ></Route>
 
-        <Route exact path={pathnames.EVENT_CREATION}
+        <Route
+          exact
+          path={pathnames.EDIT_PROFILE}
           element={
-            <PrivateRoute isAuthenticated={isAuthenticated} isVerified={isVerified}><CreateEvent /></PrivateRoute>
-          }></Route>
+            <PrivateRoute
+              isAuthenticated={isAuthenticated}
+              isVerified={isVerified}
+            >
+              <EditProfile />
+            </PrivateRoute>
+          }
+        ></Route>
+
+        <Route
+          exact
+          path={pathnames.EVENT_CREATION}
+          element={
+            <PrivateRoute
+              isAuthenticated={isAuthenticated}
+              isVerified={isVerified}
+            >
+              <CreateEvent />
+            </PrivateRoute>
+          }
+        ></Route>
       </Routes>
       {/*</div>*/}
     </Router>
