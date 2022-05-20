@@ -7,6 +7,7 @@ import PreviewAll from "../../Event/Eventpreview/PreviewAll";
 import PreviewUpcoming from "../../Event/Eventpreview/PreviewUpcoming";
 import PreviewHighlights from "../../Event/Eventpreview/PreviewHighlights";
 import { QrReader } from "react-qr-reader";
+import adapter from "webrtc-adapter";
 
 function TabBar() {
   const uid = useSelector((state) => state.uidReducer);
@@ -115,12 +116,14 @@ function TabBar() {
 
   //QR code Scanner
   function handleScan(result) {
-    console.log(result);
+    if (result) console.log(result);
   }
 
   function handleError(error) {
     console.log(error);
   }
+
+  //console.log(adapter);
 
   return (
     <div className="sectionTab">
@@ -204,7 +207,7 @@ function TabBar() {
           <br></br>
           <QrReader
             onError={handleError}
-            onScan={handleScan}
+            onResult={(result) => handleScan(result)}
             style={{ width: "100%" }}
           />
         </div>
