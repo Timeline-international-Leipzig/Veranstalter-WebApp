@@ -59,7 +59,7 @@ function Profile() {
             </button>
           </Link>
         </div>
-        <PayPalTest />
+
         {/*product={product}*/}
         <TabBar />
       </main>

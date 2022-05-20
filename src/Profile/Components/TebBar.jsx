@@ -6,6 +6,7 @@ import firebase from "firebase/compat/app";
 import PreviewAll from "../../Event/Eventpreview/PreviewAll";
 import PreviewUpcoming from "../../Event/Eventpreview/PreviewUpcoming";
 import PreviewHighlights from "../../Event/Eventpreview/PreviewHighlights";
+import { QrReader } from "react-qr-reader";
 
 function TabBar() {
   const uid = useSelector((state) => state.uidReducer);
@@ -112,6 +113,15 @@ function TabBar() {
       });
   }
 
+  //QR code Scanner
+  function handleScan(result) {
+    console.log(result);
+  }
+
+  function handleError(error) {
+    console.log(error);
+  }
+
   return (
     <div className="sectionTab">
       <hr className="hr1" />
@@ -135,12 +145,12 @@ function TabBar() {
           >
             erlebnisse
           </div>
-          {/*<div
+          <div
             className={toggleState === 3 ? "active-tabs" : "tabs"}
             onClick={() => toggleTab(3)}
           >
-            kontakte
-  </div>*/}
+            QR code scanner
+          </div>
         </div>
         <div
           style={{ left: toggleState * 25 + "%" }}
@@ -187,17 +197,17 @@ function TabBar() {
           />
         </div>
 
-        {/*<div
+        <div
           id="follower"
           className={toggleState === 3 ? "active-content" : "contents"}
         >
           <br></br>
-          <Contacts
-            username={username}
-            uid={currentUid}
-            otherProfile={otherProfile}
+          <QrReader
+            onError={handleError}
+            onScan={handleScan}
+            style={{ width: "100%" }}
           />
-</div>*/}
+        </div>
       </div>
     </div>
   );
