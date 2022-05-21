@@ -208,6 +208,9 @@ function TabBar() {
           <QrReader
             onError={handleError}
             onResult={(result) => handleScan(result)}
+            constraints={{
+              facingMode: "user",
+            }}
             style={{ width: "100%" }}
           />
         </div>
