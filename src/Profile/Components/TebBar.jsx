@@ -8,6 +8,7 @@ import PreviewUpcoming from "../../Event/Eventpreview/PreviewUpcoming";
 import PreviewHighlights from "../../Event/Eventpreview/PreviewHighlights";
 import QrReader from "react-qr-scanner";
 import Test from "../../Util/QRcodeScanner";
+//import adapter from "webrtc-adapter";
 
 function TabBar() {
   const uid = useSelector((state) => state.uidReducer);
@@ -122,6 +123,8 @@ function TabBar() {
   function handleError(error) {
     console.log(error);
   }
+
+  //console.log(adapter);
 
   return (
     <div className="sectionTab">
