@@ -6,8 +6,9 @@ import firebase from "firebase/compat/app";
 import PreviewAll from "../../Event/Eventpreview/PreviewAll";
 import PreviewUpcoming from "../../Event/Eventpreview/PreviewUpcoming";
 import PreviewHighlights from "../../Event/Eventpreview/PreviewHighlights";
-import { QrReader } from "react-qr-reader";
-import adapter from "webrtc-adapter";
+import QrReader from "react-qr-scanner";
+import Test from "../../Util/QRcodeScanner";
+//import adapter from "webrtc-adapter";
 
 function TabBar() {
   const uid = useSelector((state) => state.uidReducer);
@@ -200,19 +201,22 @@ function TabBar() {
           />
         </div>
 
-        <div
-          id="follower"
-          className={toggleState === 3 ? "active-content" : "contents"}
-        >
-          <br></br>
-          <QrReader
+        <div>
+          <br />
+          <Test />
+          {/*<QrReader
+            //delay={300}
             onError={handleError}
             onResult={(result) => handleScan(result)}
             constraints={{
               facingMode: "user",
             }}
             style={{ width: "100%" }}
-          />
+            constraints={{
+              facingMode: "user",
+            }}
+            //legacyMode={true}
+          />*/}
         </div>
       </div>
     </div>
