@@ -216,17 +216,6 @@ function TabBar() {
               jetzt scannen
             </button>
           )}
-
-          {/*<QrReader
-            //delay={300}
-            onError={handleError}
-            onScan={(result) => handleScan(result)}
-            style={{ width: "100%" }}
-            constraints={{
-              facingMode: "user",
-            }}
-            //legacyMode={true}
-          />*/}
         </div>
       </div>
     </div>

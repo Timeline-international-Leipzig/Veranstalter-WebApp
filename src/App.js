@@ -20,6 +20,7 @@ import ForgotPassword from "./Login/ForgotPassword";
 import Profile from "./Profile/Profile";
 import EditProfile from "./Settings/EditProfile";
 import CreateEvent from "./Event/CreateEvent";
+import InsideEvent from "./Event/InsideEvent/InsideEvent";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDBff13eSabadw6JOmPPWKsfxu7okqx0I4",
@@ -131,6 +132,19 @@ function App() {
               isVerified={isVerified}
             >
               <CreateEvent />
+            </PrivateRoute>
+          }
+        ></Route>
+
+        <Route
+          exact
+          path={"/event/:eventId"}
+          element={
+            <PrivateRoute
+              isAuthenticated={isAuthenticated}
+              isVerified={isVerified}
+            >
+              <InsideEvent />
             </PrivateRoute>
           }
         ></Route>
