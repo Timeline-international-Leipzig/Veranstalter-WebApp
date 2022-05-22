@@ -8,7 +8,6 @@ import PreviewUpcoming from "../../Event/Eventpreview/PreviewUpcoming";
 import PreviewHighlights from "../../Event/Eventpreview/PreviewHighlights";
 import QrReader from "react-qr-scanner";
 import Test from "../../Util/QRcodeScanner";
-//import adapter from "webrtc-adapter";
 
 function TabBar() {
   const uid = useSelector((state) => state.uidReducer);
@@ -18,6 +17,7 @@ function TabBar() {
   const [eventInfos, setEventInfos] = useState([]);
 
   const [toggleState, setToggleState] = useState(0);
+  const [showQRscanner, setShowQRscanner] = useState(false);
 
   const toggleTab = (index) => {
     setToggleState(index);
@@ -201,9 +201,22 @@ function TabBar() {
           />
         </div>
 
-        <div>
+        <div
+          id="follower"
+          className={toggleState === 3 ? "active-content" : "contents"}
+        >
           <br />
-          <Test />
+          {showQRscanner ? (
+            <div>
+              <Test />
+              <button onClick={() => setShowQRscanner(false)}>fertig</button>
+            </div>
+          ) : (
+            <button onClick={() => setShowQRscanner(true)}>
+              jetzt scannen
+            </button>
+          )}
+
           {/*<QrReader
             //delay={300}
             onError={handleError}
