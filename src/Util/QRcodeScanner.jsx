@@ -33,6 +33,9 @@ export default class Test extends Component {
           style={previewStyle}
           onError={this.handleError}
           onScan={this.handleScan}
+          /* constraints={{
+            facingMode: "user",
+          }}*/
         />
         <p>{this.state.result}</p>
       </div>
