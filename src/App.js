@@ -64,7 +64,7 @@ function App() {
 
   return (
     <Router>
-      {/*<div className="content">*/}
+
       <Routes>
         {/*Anmeldung */}
         <Route exact path="/" component={Register}></Route>
@@ -138,7 +138,7 @@ function App() {
 
         <Route
           exact
-          path={"/event/:eventId"}
+          path="/event/:eventId"
           element={
             <PrivateRoute
               isAuthenticated={isAuthenticated}
@@ -149,7 +149,7 @@ function App() {
           }
         ></Route>
       </Routes>
-      {/*</div>*/}
+
     </Router>
   );
 }

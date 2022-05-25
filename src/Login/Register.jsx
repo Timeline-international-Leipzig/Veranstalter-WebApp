@@ -37,12 +37,23 @@ function Register() {
 
   useEffect(() => {
     async function fbBug() {
-      await firebase.firestore().collection(Fb.ORGANIZERS).doc("bug").set({
-        firestoreInit: "firestore init",
-      });
+      await firebase
+        .firestore()
+        .collection(Fb.ORGANIZERS)
+        .doc("bug")
+        .set({
+          firestoreInit: "firestore init",
+        })
+        .then(() => {
+          deleteFbInit();
+        });
     }
     fbBug();
   }, []);
+
+  async function deleteFbInit() {
+    await firebase.firestore().collection(Fb.ORGANIZERS).doc("bug").delete();
+  }
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -166,18 +177,8 @@ function Register() {
         window.alert(errorMessage);
         return;
       });
-    deleteFbInit();
-  }
 
-  async function deleteFbInit() {
-    await firebase
-      .firestore()
-      .collection(Fb.ORGANIZERS)
-      .doc("bug")
-      .delete()
-      .then(() => {
-        emailVerification();
-      });
+    emailVerification();
   }
 
   async function emailVerification() {

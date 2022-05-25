@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 //const PayPalButton = paypal.Buttons.driver("react", { React, ReactDOM });
