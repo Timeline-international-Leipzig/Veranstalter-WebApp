@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 import Fb from "../../../Util/fbVariables";
 import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
@@ -12,14 +11,17 @@ import NextIcon from "../../../IconComponents/NextIcon";
 import PreviousIcon from "../../../IconComponents/PreviousIcon";
 import pathnames from "../../../Util/pathnames";
 import DefaultPI from "../../../Images/DefaultPI.jpeg";
-//import Quote from "../../../IconComponents/Quote";
+import Quote from "../../../IconComponents/Quote";
 import CloseIcon from "../../../IconComponents/Close";
+import CreateElement from "./CreateElement";
 
 function EventFotos({ eventId }) {
   const [elementsList, setElementsList] = useState([{}]);
   const [fotosList, setFotosList] = useState();
 
   const [showFotoOverlay, setShowFotoOverlay] = useState(false);
+
+  const [citationPreviewPopup, setCitationPreviewPopup] = useState(false);
 
   useEffect(() => {
     function getElements() {
@@ -53,7 +55,6 @@ function EventFotos({ eventId }) {
   }
 
   function filterFotos(array) {
-    console.log(array);
     const fotos = array.filter((elements) => elements.type === "IMAGE");
     setFotosList(fotos);
   }
@@ -192,6 +193,11 @@ function EventFotos({ eventId }) {
     setFotosList(newList);
   };
 
+  //ZITATE
+  function toggleCitationPopup() {
+    setCitationPreviewPopup((prevState) => !prevState);
+  }
+
   return (
     <div className="addShowFoto">
       <div className="photoInput">
@@ -205,10 +211,26 @@ function EventFotos({ eventId }) {
           <Camera />
         </label>
 
-        {/*<div className="addQuote" onClick={toggleCitationPopup}>
+        <div className="addQuote" onClick={toggleCitationPopup}>
           <Quote />
-  </div>*/}
+        </div>
       </div>
+
+      {citationPreviewPopup && (
+        <div className="participantOverlay">
+          <div className="participantPopup2">
+            <span className="quoteHeader">Zitat hinzufügen</span>
+
+            <div
+              className="closeParticipantPopup"
+              onClick={toggleCitationPopup}
+            >
+              <span>schließen</span>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="insideImgCont">
         {elementsList.map((elements) => {
           switch (elements.type) {
@@ -291,6 +313,13 @@ function EventFotos({ eventId }) {
                     </div>
                   )}
                 </div>
+              );
+            case Fb.CREATE:
+              return (
+                <CreateElement
+                  key={elements.id}
+                  creatorId={elements.uriOrUid}
+                />
               );
           }
         })}

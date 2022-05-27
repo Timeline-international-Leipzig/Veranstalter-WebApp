@@ -9,6 +9,7 @@ import DefaultBI from "../../Images/DefaultBI.jpeg";
 import EventFotos from "./Components/EventFotos";
 import Participants from "./Components/Participants";
 import EventSettings from "./Components/EventSettings";
+import "./InsideEvent.css";
 
 function InsideEvent() {
   const eventId = useParams().eventId;
