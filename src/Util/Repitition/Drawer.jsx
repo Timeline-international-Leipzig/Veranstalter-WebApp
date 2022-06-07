@@ -73,14 +73,14 @@ function Drawer(props) {
             </Link>
           </div>
           <div className="drawerItem">
-            {/*<Link to={pathnames.CONTACT} className="drawerBtn">
+            <a href="https://groupic.de/kontakt" className="drawerBtn">
               <span className="itemText">kontakt</span>
-  </Link>*/}
+            </a>
           </div>
           <div className="drawerItem">
-            {/*<Link to={pathnames.EXTRAFUNCTIONS} className="drawerBtn">
+            <Link to={pathnames.EXTRAFUNCTIONS} className="drawerBtn">
               <span className="itemText">extra funktionen</span>
-</Link>*/}
+            </Link>
           </div>
           <div className="drawerItem">
             <div onClick={logoutFkt} id="signoutBtn" className="drawerBtn2">

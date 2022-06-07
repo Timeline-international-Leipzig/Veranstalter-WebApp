@@ -36,12 +36,12 @@ function Navigation(props) {
           <LogoGroupic regularNav={true} />
 
           <li id="li">
-            <Link to={pathnames.SOCIAL} className="nav-link">
+            <a href="https://groupic.de/social" className="nav-link">
               <Group />
               <span className={currentSocial ? "activeNav" : "link-text"}>
                 community
               </span>
-            </Link>
+            </a>
           </li>
 
           <li id="lit">
