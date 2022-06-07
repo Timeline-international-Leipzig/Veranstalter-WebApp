@@ -6,7 +6,6 @@ import firebase from "firebase/compat/app";
 import PreviewAll from "../../Event/Eventpreview/PreviewAll";
 import PreviewUpcoming from "../../Event/Eventpreview/PreviewUpcoming";
 import PreviewHighlights from "../../Event/Eventpreview/PreviewHighlights";
-import QrReader from "react-qr-scanner";
 import Test from "../../Util/QRcodeScanner";
 
 function TabBar() {

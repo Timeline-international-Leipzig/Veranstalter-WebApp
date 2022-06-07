@@ -32,7 +32,7 @@ function PreviewAll(props) {
             <Link
               className="previewLink"
               to={{
-                pathname: "event/" + eventInfo.id,
+                pathname: "/event/" + eventInfo.id,
               }}
             >
               {eventInfo.coverPic === "" ? (
