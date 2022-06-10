@@ -114,14 +114,14 @@ function InsideEvent() {
     setEventInfos({ ...eventInfos, coverPic: url });
   }
 
-  /* async function removeParticipant() {
+  async function removeParticipant() {
     setParticipants(await getParticipants(eventId));
-  }*/
+  }
 
   //Eventmode ändern
-  function updateMode(newEventPrivacy) {
+  /* function updateMode(newEventPrivacy) {
     setEventInfos({ ...eventInfos, mode: newEventPrivacy });
-  }
+  }*/
 
   return (
     <div>
@@ -137,10 +137,10 @@ function InsideEvent() {
           <EventSettings
             eventInfo={eventInfos}
             updateTitle={(newTitle) => updateTitle(newTitle)}
-            updateMode={(EventPrivacy) => updateMode(EventPrivacy)}
+            //updateMode={(EventPrivacy) => updateMode(EventPrivacy)}
             // leaveEvent={leaveEvent}
             updateCoverPic={(url) => updateCoverPic(url)}
-            // removeParticipant={removeParticipant}
+            removeParticipant={removeParticipant}
           />
         </div>
         <div className="insideDate">

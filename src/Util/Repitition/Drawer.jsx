@@ -73,9 +73,9 @@ function Drawer(props) {
             </Link>
           </div>
           <div className="drawerItem">
-            <a href="https://groupic.de/kontakt" className="drawerBtn">
+            <Link to={pathnames.CONTACT} className="drawerBtn">
               <span className="itemText">kontakt</span>
-            </a>
+            </Link>
           </div>
           <div className="drawerItem">
             <Link to={pathnames.EXTRAFUNCTIONS} className="drawerBtn">

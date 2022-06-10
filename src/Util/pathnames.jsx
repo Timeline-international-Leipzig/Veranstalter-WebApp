@@ -16,5 +16,7 @@ const pathnames = {
   NOTIFICATION: "/benachrichtigungen",
   EVENT_CREATION: "/eventerstellung",
   SOCIAL: "/social",
+  EXTRAFUNCTIONS: "/extrafunktionen",
+  CONTACT: "/kontakt",
 };
 export default pathnames;
