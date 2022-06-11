@@ -64,7 +64,6 @@ function App() {
 
   return (
     <Router>
-
       <Routes>
         {/*Anmeldung */}
         <Route exact path="/" component={Register}></Route>
@@ -78,7 +77,7 @@ function App() {
         <Route exact path={pathnames.IMPRESSUM} element={<Impressum />}></Route>
 
         <Route exact path={pathnames.REGISTER} element={<Register />}></Route>
-        <Route exact path={pathnames.LOGIN} element={<Login />}></Route>
+        {/*<Route exact path={pathnames.LOGIN} element={<Login />}></Route>*/}
         <Route
           exact
           path={pathnames.FORGOT_PASSWORD}
@@ -149,7 +148,6 @@ function App() {
           }
         ></Route>
       </Routes>
-
     </Router>
   );
 }
