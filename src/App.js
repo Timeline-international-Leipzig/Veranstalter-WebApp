@@ -21,6 +21,8 @@ import Profile from "./Profile/Profile";
 import EditProfile from "./Settings/EditProfile";
 import CreateEvent from "./Event/CreateEvent";
 import InsideEvent from "./Event/InsideEvent/InsideEvent";
+import ContactPage from "./Contact/ContactPage";
+import ExtraFunctions from "./Contact/ExtraFunctions";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDBff13eSabadw6JOmPPWKsfxu7okqx0I4",
@@ -131,6 +133,30 @@ function App() {
               isVerified={isVerified}
             >
               <CreateEvent />
+            </PrivateRoute>
+          }
+        ></Route>
+
+        <Route
+          exact path={pathnames.CONTACT}
+          element={
+            <PrivateRoute
+              isAuthenticated={isAuthenticated}
+              isVerified={isVerified}
+            >
+              <ContactPage />
+            </PrivateRoute>
+          }
+        ></Route>
+
+        <Route
+          exact path={pathnames.EXTRAFUNCTIONS}
+          element={
+            <PrivateRoute
+              isAuthenticated={isAuthenticated}
+              isVerified={isVerified}
+            >
+              <ExtraFunctions />
             </PrivateRoute>
           }
         ></Route>
