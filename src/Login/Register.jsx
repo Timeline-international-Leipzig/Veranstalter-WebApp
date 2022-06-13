@@ -329,6 +329,10 @@ function Register() {
                   <Link to={pathnames.AGB} target="_blank">
                     AGB
                   </Link>{" "}
+                  und{" "}
+                  <Link to={pathnames.DATENSCHUTZ} target="_blank">
+                    Datenschutzerklärung
+                  </Link>{" "}
                   gelesen und bin einverstanden
                 </span>
               </label>
@@ -350,9 +354,9 @@ function Register() {
           {/**hier fehlen noch styles */}
           {/*<ClipLoader color="red" loading={loading} size={80} />*/}
           <div className="contSwitch">
-            <Link id="gray" to={pathnames.LOGIN}>
+            <a id="gray" href="https://groupic.de/anmeldung">
               {register}
-            </Link>
+            </a>
           </div>
         </form>
       </div>
