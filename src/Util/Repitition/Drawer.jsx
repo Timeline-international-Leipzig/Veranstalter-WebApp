@@ -44,7 +44,12 @@ function Drawer(props) {
   if (!props.open.drawerPop) return null;
 
   const logoutFkt = () => {
-    firebase.auth().signOut();
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        window.location.href = "https://groupic.de";
+      });
   };
 
   return (

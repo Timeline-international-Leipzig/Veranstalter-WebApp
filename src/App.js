@@ -79,7 +79,7 @@ function App() {
         <Route exact path={pathnames.IMPRESSUM} element={<Impressum />}></Route>
 
         <Route exact path={pathnames.REGISTER} element={<Register />}></Route>
-        {/*<Route exact path={pathnames.LOGIN} element={<Login />}></Route>*/}
+        <Route exact path={pathnames.LOGIN} element={<Login />}></Route>
         <Route
           exact
           path={pathnames.FORGOT_PASSWORD}
@@ -138,7 +138,8 @@ function App() {
         ></Route>
 
         <Route
-          exact path={pathnames.CONTACT}
+          exact
+          path={pathnames.CONTACT}
           element={
             <PrivateRoute
               isAuthenticated={isAuthenticated}
@@ -150,7 +151,8 @@ function App() {
         ></Route>
 
         <Route
-          exact path={pathnames.EXTRAFUNCTIONS}
+          exact
+          path={pathnames.EXTRAFUNCTIONS}
           element={
             <PrivateRoute
               isAuthenticated={isAuthenticated}
