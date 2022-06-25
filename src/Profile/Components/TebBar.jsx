@@ -6,7 +6,7 @@ import firebase from "firebase/compat/app";
 import PreviewAll from "../../Event/Eventpreview/PreviewAll";
 import PreviewUpcoming from "../../Event/Eventpreview/PreviewUpcoming";
 import PreviewHighlights from "../../Event/Eventpreview/PreviewHighlights";
-import Test from "../../Util/QRcodeScanner";
+import QrCodeScanner from "../../Util/QRcodeScanner";
 
 function TabBar() {
   const uid = useSelector((state) => state.uidReducer);
@@ -115,15 +115,9 @@ function TabBar() {
   }
 
   //QR code Scanner
-  function handleScan(result) {
-    if (result) console.log(result);
+  function disableScanner() {
+    setShowQRscanner(false);
   }
-
-  function handleError(error) {
-    console.log(error);
-  }
-
-  //console.log(adapter);
 
   return (
     <div className="sectionTab">
@@ -207,7 +201,10 @@ function TabBar() {
           <br />
           {showQRscanner ? (
             <div>
-              <Test />
+              <QrCodeScanner
+                disableScanner={disableScanner}
+                eventId={eventInfos}
+              />
               <button onClick={() => setShowQRscanner(false)}>fertig</button>
             </div>
           ) : (

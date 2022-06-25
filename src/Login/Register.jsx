@@ -14,7 +14,7 @@ import { css } from "@emotion/react";
 function Register() {
   const [username, setUsername] = useState("");
   const [officialName, setOfficialName] = useState("");
-  const [adress, setAdress] = useState("");
+  const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -128,18 +128,18 @@ function Register() {
       .doc(uid)
       .set({
         uid: uid,
-        officialName: officialName,
+        fullName: officialName,
         username: username,
         email: email,
         profileImageId: "",
         titleImageId: "",
-        adress: adress + city,
+        address: address + city,
         token: "",
         keyWords: "",
         highLights: [],
         events: [],
         usedStorage: 0,
-        availableStoarge: 2000000,
+        availableStorage: 2000000,
         //openActiveEvents: true,
       })
       .catch((error) => {
@@ -223,7 +223,6 @@ function Register() {
             <div>
               <label htmlFor="name">rechtlicher firmenname.</label>
               <input
-                maxLength="15"
                 type="text"
                 id="username"
                 value={officialName}
@@ -235,7 +234,6 @@ function Register() {
             <div>
               <label htmlFor="name">benutzername.</label>
               <input
-                maxLength="15"
                 type="text"
                 id="username"
                 value={username}
@@ -249,8 +247,8 @@ function Register() {
               <input
                 type="text"
                 id="username"
-                value={adress}
-                onChange={(e) => setAdress(e.target.value)}
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
                 required
               />
             </div>

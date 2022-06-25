@@ -382,7 +382,7 @@ function CreateEvent() {
               type="radio"
               value="öffentlich"
               checked={eventPrivacy === "öffentlich"}
-              onChange={(e) => setEventPrivacy(e.target.value)}
+              onChange={(e) => setEventPrivacy(1)}
             />
             <label className="eventPrivacyLabel" htmlFor="teilnehmer">
               öffentlich
@@ -395,7 +395,7 @@ function CreateEvent() {
               type="radio"
               value="auf Einladung"
               checked={eventPrivacy === "auf Einladung"}
-              onChange={(e) => setEventPrivacy(e.target.value)}
+              onChange={(e) => setEventPrivacy(2)}
             />
             <label
               className="eventPrivacyLabel"
@@ -411,7 +411,7 @@ function CreateEvent() {
               type="radio"
               value="kostenpflichtig"
               checked={eventPrivacy === "kostenpflichtig"}
-              onChange={(e) => setEventPrivacy(e.target.value)}
+              onChange={(e) => setEventPrivacy(3)}
             />
             <label className="eventPrivacyLabel" htmlFor="teilnehmer">
               bezahltes Ticket
@@ -432,7 +432,7 @@ function CreateEvent() {
           />
         </button>
 
-        {eventPrivacy === "kostenpflichtig" && (
+        {eventPrivacy === 3 && (
           <CurrencyInput
             placeholder="bitte gib den Preis deines Tickets ein"
             onValueChange={(value) => setPrice(value)}
@@ -441,6 +441,8 @@ function CreateEvent() {
             suffix="€"
             allowNegativeValue={false}
             defaultValue={1}
+            decimalSeparator="."
+            groupSeparator=","
           />
         )}
       </main>
