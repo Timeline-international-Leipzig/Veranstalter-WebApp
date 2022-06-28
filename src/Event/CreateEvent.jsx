@@ -30,7 +30,7 @@ function CreateEvent() {
   const [endDate, setEndDate] = useState();
   const [endDateFormatted, setEndDateFormatted] = useState(null);
   const [eventPrivacy, setEventPrivacy] = useState();
-  const [price, setPrice] = useState(1);
+  const [price, setPrice] = useState("1");
 
   //aktiviert den Chiploader am Anfang der Funktion und deaktiviert ihn am ende
   const [loading, setLoading] = useState(false);
@@ -44,6 +44,10 @@ function CreateEvent() {
   useEffect(() => {
     formatStartDate(startDate);
   }, [startDate]);
+
+  useEffect(() => {
+    console.log(price, 1);
+  }, [price]);
 
   useEffect(() => {
     formatEndDate(endDate);
@@ -77,7 +81,7 @@ function CreateEvent() {
     const eventId = uuidv4();
     const elementId = uuidv4();
     const time = Date.now();
-    const URL = "http://localhost:3000/event/" + eventId;
+    const URL = "https://groupic.de/offizielles-event/" + eventId;
 
     setLoading(true);
 
@@ -100,7 +104,7 @@ function CreateEvent() {
         endStamp: endStampMillisec,
         sizeKb: 0,
         URL: URL,
-        price: price,
+        price: price.toString(),
       })
       .then(async () => {
         await firebase
@@ -381,7 +385,7 @@ function CreateEvent() {
               id="teilnehmer"
               type="radio"
               value="öffentlich"
-              checked={eventPrivacy === "öffentlich"}
+              checked={eventPrivacy === 1}
               onChange={(e) => setEventPrivacy(1)}
             />
             <label className="eventPrivacyLabel" htmlFor="teilnehmer">
@@ -394,7 +398,7 @@ function CreateEvent() {
               id="teilnehmerUndKontakte"
               type="radio"
               value="auf Einladung"
-              checked={eventPrivacy === "auf Einladung"}
+              checked={eventPrivacy === 2}
               onChange={(e) => setEventPrivacy(2)}
             />
             <label
@@ -410,7 +414,7 @@ function CreateEvent() {
               id="teilnehmer"
               type="radio"
               value="kostenpflichtig"
-              checked={eventPrivacy === "kostenpflichtig"}
+              checked={eventPrivacy === 3}
               onChange={(e) => setEventPrivacy(3)}
             />
             <label className="eventPrivacyLabel" htmlFor="teilnehmer">
@@ -440,7 +444,7 @@ function CreateEvent() {
             decimalsLimit={2}
             suffix="€"
             allowNegativeValue={false}
-            defaultValue={1}
+            defaultValue={1.0}
             decimalSeparator="."
             groupSeparator=","
           />

@@ -89,6 +89,7 @@ function Participants({ participantArray }) {
           {participantArray.length > 4 && (
             <div className="moreContacts">
               <img
+                alt=""
                 src={<ParticipantIcon />}
                 className="contactPicMore"
                 onClick={() =>

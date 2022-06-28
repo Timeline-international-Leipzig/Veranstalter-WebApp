@@ -10,6 +10,12 @@ import EventFotos from "./Components/EventFotos";
 import Participants from "./Components/Participants";
 import EventSettings from "./Components/EventSettings";
 import "./InsideEvent.css";
+import {
+  EmailShareButton,
+  WhatsappShareButton,
+  EmailIcon,
+  WhatsappIcon,
+} from "react-share";
 
 function InsideEvent() {
   const eventId = useParams().eventId;
@@ -41,6 +47,7 @@ function InsideEvent() {
             mode,
             participantIds,
             adminIds,
+            URL,
           } = snapshot.data();
 
           return {
@@ -53,6 +60,7 @@ function InsideEvent() {
             mode,
             participantIds,
             adminIds,
+            URL,
           };
         });
       setEventInfos(event);
@@ -101,6 +109,7 @@ function InsideEvent() {
 
   //Edit Profile
   function updateTitle(newTitle) {
+    console.log("test");
     setEventInfos({ ...eventInfos, title: newTitle });
   }
 
@@ -148,6 +157,17 @@ function InsideEvent() {
             {eventInfos.startDate} - {eventInfos.endDate}
           </span>
         </div>
+
+        <EmailShareButton url={eventInfos.URL}>
+          <EmailIcon round={true} size={32} />
+        </EmailShareButton>
+        <WhatsappShareButton
+          url={eventInfos.URL}
+          title="Groupic teilen test"
+          separator=": "
+        >
+          <WhatsappIcon round={true} size={32} url={eventInfos.URL} />
+        </WhatsappShareButton>
 
         <div className="participantBar">
           <div className="participantRow">

@@ -24,6 +24,7 @@ import InsideEvent from "./Event/InsideEvent/InsideEvent";
 import ContactPage from "./Contact/ContactPage";
 import ExtraFunctions from "./Contact/ExtraFunctions";
 
+/*
 const firebaseConfig = {
   apiKey: "AIzaSyC3OHufvBBCg1m1r7lpOLT3205yCGxj3tM",
   authDomain: "groupic-release.firebaseapp.com",
@@ -32,9 +33,8 @@ const firebaseConfig = {
   messagingSenderId: "52061265488",
   appId: "1:52061265488:web:3cb59c79c12de025edfb55",
   measurementId: "G-VDWVVFD24J",
-};
+};*/
 
-/*
 const firebaseConfig = {
   apiKey: "AIzaSyDBff13eSabadw6JOmPPWKsfxu7okqx0I4",
   authDomain: "timeline-backup.firebaseapp.com",
@@ -42,7 +42,7 @@ const firebaseConfig = {
   storageBucket: "timeline-backup.appspot.com",
   messagingSenderId: "467538146750",
   appId: "1:467538146750:web:63a671baa23a1fdb3f35ef",
-};*/
+};
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
