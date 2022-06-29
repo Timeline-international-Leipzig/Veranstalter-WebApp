@@ -16,6 +16,7 @@ import {
   EmailIcon,
   WhatsappIcon,
 } from "react-share";
+import EventInfos from "./Components/EventInfos";
 
 function InsideEvent() {
   const eventId = useParams().eventId;
@@ -174,6 +175,8 @@ function InsideEvent() {
           </div>
           <hr className="hrEvent" />
         </div>
+        <EventInfos eventId={eventId} />
+
         <EventFotos eventId={eventId} />
       </main>
     </div>
