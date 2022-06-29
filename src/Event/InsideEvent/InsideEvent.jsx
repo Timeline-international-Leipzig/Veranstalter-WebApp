@@ -109,7 +109,6 @@ function InsideEvent() {
 
   //Edit Profile
   function updateTitle(newTitle) {
-    console.log("test");
     setEventInfos({ ...eventInfos, title: newTitle });
   }
 
