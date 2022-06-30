@@ -30,9 +30,10 @@ function CreateEvent() {
   const [endDate, setEndDate] = useState();
   const [endDateFormatted, setEndDateFormatted] = useState(null);
   const [eventPrivacy, setEventPrivacy] = useState();
-  const [price, setPrice] = useState("1");
-  const [time, setTime] = useState("");
+  const [price, setPrice] = useState("");
+  const [startTime, setStartTime] = useState("");
   const [place, setPlace] = useState("");
+  const [link, setLink] = useState("");
 
   //aktiviert den Chiploader am Anfang der Funktion und deaktiviert ihn am ende
   const [loading, setLoading] = useState(false);
@@ -107,8 +108,9 @@ function CreateEvent() {
         sizeKb: 0,
         URL: URL,
         price: price.toString(),
-        time: time,
+        time: startTime,
         place: place,
+        link: link,
       })
       .then(async () => {
         await firebase
@@ -388,9 +390,15 @@ function CreateEvent() {
           ></input>
           <input
             type="text"
+            placeholder="Link"
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
+          ></input>
+          <input
+            type="text"
             placeholder="Zeit..."
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
+            value={startTime}
+            onChange={(e) => setStartTime(e.target.value)}
           ></input>
         </div>
 
