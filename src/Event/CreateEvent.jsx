@@ -31,6 +31,8 @@ function CreateEvent() {
   const [endDateFormatted, setEndDateFormatted] = useState(null);
   const [eventPrivacy, setEventPrivacy] = useState();
   const [price, setPrice] = useState("1");
+  const [time, setTime] = useState("");
+  const [place, setPlace] = useState("");
 
   //aktiviert den Chiploader am Anfang der Funktion und deaktiviert ihn am ende
   const [loading, setLoading] = useState(false);
@@ -105,6 +107,8 @@ function CreateEvent() {
         sizeKb: 0,
         URL: URL,
         price: price.toString(),
+        time: time,
+        place: place,
       })
       .then(async () => {
         await firebase
@@ -373,6 +377,21 @@ function CreateEvent() {
             ></input>
             <img className="einrichtungBI" src={showResultC} alt="" />
           </label>
+        </div>
+
+        <div>
+          <input
+            type="text"
+            placeholder="Ort..."
+            value={place}
+            onChange={(e) => setPlace(e.target.value)}
+          ></input>
+          <input
+            type="text"
+            placeholder="Zeit..."
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
+          ></input>
         </div>
 
         <div className="privacyLabel">

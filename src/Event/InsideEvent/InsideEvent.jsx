@@ -16,7 +16,6 @@ import {
   EmailIcon,
   WhatsappIcon,
 } from "react-share";
-import EventInfos from "./Components/EventInfos";
 
 function InsideEvent() {
   const eventId = useParams().eventId;
@@ -158,7 +157,7 @@ function InsideEvent() {
           </span>
         </div>
 
-        <EmailShareButton url={eventInfos.URL}>
+        {/*<EmailShareButton url={eventInfos.URL}>
           <EmailIcon round={true} size={32} />
         </EmailShareButton>
         <WhatsappShareButton
@@ -167,7 +166,7 @@ function InsideEvent() {
           separator=": "
         >
           <WhatsappIcon round={true} size={32} url={eventInfos.URL} />
-        </WhatsappShareButton>
+        </WhatsappShareButton>*/}
 
         <div className="participantBar">
           <div className="participantRow">
@@ -175,7 +174,6 @@ function InsideEvent() {
           </div>
           <hr className="hrEvent" />
         </div>
-        <EventInfos eventId={eventId} />
 
         <EventFotos eventId={eventId} />
       </main>
