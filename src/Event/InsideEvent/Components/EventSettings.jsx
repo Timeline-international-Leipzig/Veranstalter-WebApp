@@ -98,7 +98,10 @@ function EventSettings({
     toggleCropup();
   };
 
+  useEffect(() => {}, [srcImg]);
+
   const getCroppedImg = () => {
+    console.log("test");
     const canvas = document.createElement("canvas");
     const scaleX = image.naturalWidth / image.width;
     const scaleY = image.naturalHeight / image.height;
@@ -119,6 +122,7 @@ function EventSettings({
 
     canvas.toBlob(
       (blob) => {
+        console.log(blob);
         storeCoverPic(blob);
         toggleCropup();
       },
@@ -129,7 +133,7 @@ function EventSettings({
 
   async function storeCoverPic(result) {
     if (result === 0) {
-      window.alert("kein Bild gefunden!");
+      window.alert("no images found!");
       return;
     } else {
       await firebase

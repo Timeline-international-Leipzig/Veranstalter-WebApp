@@ -14,6 +14,7 @@ import DefaultPI from "../../../Images/DefaultPI.jpeg";
 import Quote from "../../../IconComponents/Quote";
 import CloseIcon from "../../../IconComponents/Close";
 import CreateElement from "./CreateElement";
+import Compressor from "compressorjs";
 
 function EventFotos({ eventId }) {
   const [elementsList, setElementsList] = useState([{}]);
@@ -62,54 +63,63 @@ function EventFotos({ eventId }) {
   //FOTOS
   async function addFoto(e) {
     const time = Date.now();
-
     const file = e.target.files;
+
     for (let i = 0; i < file.length; i++) {
       const fotoId = uuidv4();
 
-      await firebase
-        .storage()
-        .ref(Fb.EVENTPICS)
-        .child(eventId)
-        .child(fotoId)
-        .put(file[i])
-        .then(async () => {
-          await firebase
-            .storage()
-            .ref(Fb.EVENTPICS)
-            .child(eventId)
-            .child(fotoId)
-            .getDownloadURL()
-            .then(async (url) => {
-              await firebase
-                .firestore()
-                .collection(Fb.COM_EVENTS)
-                .doc(eventId)
-                .collection(Fb.ELEMENTS)
-                .doc(fotoId)
-                .set({
-                  id: fotoId,
-                  stamp: time,
-                  type: Fb.IMAGE,
-                  toUid: null,
-                  uriOrUid: url,
-                });
-              setElementsList((prevState) => [
-                {
-                  id: fotoId,
-                  stamp: time,
-                  type: Fb.IMAGE,
-                  toUid: null,
-                  uriOrUid: url,
-                },
-                ...prevState,
-              ]);
-            });
-        })
-        .catch((error) => {
-          window.alert(error.message);
-        });
+      new Compressor(file[i], {
+        quality: 0.8, // 0.6 can also be used, but its not recommended to go below.
+        success: (resFile) => {
+          uploadFoto(resFile, fotoId, time);
+        },
+      });
     }
+  }
+
+  async function uploadFoto(resFile, fotoId, time) {
+    await firebase
+      .storage()
+      .ref(Fb.EVENTPICS)
+      .child(eventId)
+      .child(fotoId)
+      .put(resFile)
+      .then(async () => {
+        await firebase
+          .storage()
+          .ref(Fb.EVENTPICS)
+          .child(eventId)
+          .child(fotoId)
+          .getDownloadURL()
+          .then(async (url) => {
+            await firebase
+              .firestore()
+              .collection(Fb.COM_EVENTS)
+              .doc(eventId)
+              .collection(Fb.ELEMENTS)
+              .doc(fotoId)
+              .set({
+                id: fotoId,
+                stamp: time,
+                type: Fb.IMAGE,
+                toUid: null,
+                uriOrUid: url,
+              });
+            setElementsList((prevState) => [
+              {
+                id: fotoId,
+                stamp: time,
+                type: Fb.IMAGE,
+                toUid: null,
+                uriOrUid: url,
+              },
+              ...prevState,
+            ]);
+          });
+      })
+      .catch((error) => {
+        window.alert(error.message);
+      });
   }
 
   async function deleteFoto(fotos) {
