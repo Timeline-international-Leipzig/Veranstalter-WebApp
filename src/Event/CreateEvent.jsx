@@ -34,6 +34,7 @@ function CreateEvent() {
   const [startTime, setStartTime] = useState("");
   const [place, setPlace] = useState("");
   const [link, setLink] = useState("");
+  const [keyData, setKeyData] = useState("");
 
   //aktiviert den Chiploader am Anfang der Funktion und deaktiviert ihn am ende
   const [loading, setLoading] = useState(false);
@@ -111,6 +112,7 @@ function CreateEvent() {
         time: startTime,
         place: place,
         link: link,
+        keyData: keyData,
       })
       .then(async () => {
         await firebase
@@ -399,6 +401,12 @@ function CreateEvent() {
             placeholder="Zeit..."
             value={startTime}
             onChange={(e) => setStartTime(e.target.value)}
+          ></input>
+          <input
+            type="text"
+            placeholder="Infos: für Zeilenumbruch ohne Leerzeichen /n schreiben"
+            value={keyData}
+            onChange={(e) => setKeyData(e.target.value)}
           ></input>
         </div>
 
